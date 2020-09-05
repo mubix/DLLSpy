@@ -545,7 +545,7 @@ string GetFilename(string sFullPath)
 	return sFullPath;
 }
 
-void Beautify(PProcessContainer p, string message, string sevirity)
+void Beautify(PProcessContainer p, string message, string severity)
 {
 	fNewLog << message << endl << endl;
 	for (auto &it : p->vProcessData)
@@ -553,13 +553,13 @@ void Beautify(PProcessContainer p, string message, string sevirity)
 		int count = 0;
 		for (auto j : it.vsDLLs)
 		{
-			if (!j.sServirity.compare(sevirity))
+			if (!j.sServirity.compare(severity))
 			{
 				count++;
 				if (count == 1)
 				{
 					string sFileName = GetFilename(it.sBinaryPath);
-					fNewLog << "Application:  " << sFileName << "," << "Path:  " << it.sBinaryPath.c_str() << "," << "User:  " << it.sUserName << "," << "Sevirtiy:  " << sevirity << endl;
+					fNewLog << "Application:  " << sFileName << "," << "Path:  " << it.sBinaryPath.c_str() << "," << "User:  " << it.sUserName << "," << "Severtiy:  " << severity << endl;
 					fNewLog << "Modules" << endl;
 				}
 				fNewLog << j.sBinaryPath.c_str() << endl;
